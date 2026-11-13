@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   NEOCLASSICAL TECH DESIGN SYSTEM: CSS CUSTOM PROPERTIES (:root)
+   Imperial Neoclassical Architecture × Obsidian Cyber Aesthetics
+   ========================================================================== */
+:root {
+  /* Obsidian Marble & Midnight Neoclassical Palette */
+  --ivory: #0B0D12;             /* Deep Obsidian / Nero Marquina Marble Background */
+  --parchment: #121622;         /* Dark Polished Basalt Surface */
+  --cream: #1C2333;             /* Chiseled Slate Border & Accents */
+  --burgundy: #E5C07B;          /* Imperial Auric Gold Headings */
+  --oxblood: #F5D77F;           /* Bright Metallic Gold Glow */
+  --walnut: #F1F5F9;            /* Crisp Platinum White Subheadings */
+  --gold: #D4AF37;              /* Classic Neoclassical Gold Detailing */
+  --brass: #E5C07B;             /* Muted Champagne Gold */
+  --forest: #10B981;            /* Verona Cyber-Verdigris / Emerald Tech */
+  --espresso: #E2E8F0;          /* High-Legibility Silver-White Body Text */
+  --charcoal: #94A3B8;          /* Secondary Muted Granite Text */
+  --muted: #64748B;             /* Architectural Blueprint Slate */
+
+  /* Cyber & Royal Neoclassical Accents */
+  --gold-light: #FCE8B3;
+  --gold-dark: #B8860B;
+  --gold-glow: 0 0 25px rgba(229, 192, 123, 0.35);
+  --cyan-tech: #38BDF8;
+  --ruby-tech: #F43F5E;
+  --gold-metallic: linear-gradient(135deg, #B8860B 0%, #E5C07B 35%, #FFF0C2 50%, #D4AF37 70%, #996515 100%);
+  --parchment-subtle: #171C28;
+  --parchment-border: rgba(229, 192, 123, 0.25);
+  --burgundy-subtle: rgba(229, 192, 123, 0.08);
+
+  /* Typography Stacks */
+  --font-cormorant: "Cormorant Garamond", Garamond, Georgia, serif;
+  --font-playfair: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-dm: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   TAILWIND CSS v4 THEME SPECIFICATION
+   ========================================================================== */
+@theme {
+  --color-ivory: #0B0D12;
+  --color-parchment: #121622;
+  --color-cream: #1C2333;
+  --color-burgundy: #E5C07B;
+  --color-oxblood: #F5D77F;
+  --color-walnut: #F1F5F9;
+  --color-gold: #D4AF37;
+  --color-brass: #E5C07B;
+  --color-forest: #10B981;
+  --color-espresso: #E2E8F0;
+  --color-charcoal: #94A3B8;
+  --color-muted: #64748B;
+
+  --color-gold-light: #FCE8B3;
+  --color-gold-dark: #B8860B;
+  --color-parchment-subtle: #171C28;
+
+  --font-serif: "Cormorant Garamond", Garamond, Georgia, serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-cormorant: "Cormorant Garamond", Garamond, Georgia, serif;
+  --font-playfair: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-dm: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --shadow-ornate: 0 4px 25px -2px rgba(0, 0, 0, 0.6), 0 0 15px -1px rgba(212, 175, 55, 0.15);
+  --shadow-ornate-deep: 0 12px 40px -4px rgba(0, 0, 0, 0.8), 0 0 25px rgba(229, 192, 123, 0.2);
+  --shadow-plinth: 0 20px 50px -10px rgba(0, 0, 0, 0.9);
+}
+
+/* ==========================================================================
+   GLOBAL BASE & BODY DEFAULTS
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0B0D12;
+}
+
+body {
+  background-color: var(--ivory);
+  color: var(--espresso);
+  font-family: var(--font-inter);
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+::selection {
+  background-color: #D4AF37;
+  color: #0B0D12;
+}
+
+/* Custom Neoclassical Tech Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0D12;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A3346;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Textures & Graphical Surfacing */
+.texture-paper,
+.texture-parchment,
+.texture-ivory {
+  background-color: #121622;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(229, 192, 123, 0.05) 0%, transparent 60%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 0%, transparent 100%);
+}
+
+/* Gold Gradient Text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FCE8B3 0%, #E5C07B 40%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-gradient-subtle {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E5C07B 60%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glowing Architectural Borders */
+.border-gold-glow {
+  border-color: rgba(229, 192, 123, 0.35);
+  box-shadow: 0 0 15px rgba(229, 192, 123, 0.12);
+}
+
+.border-gold-glow:hover {
+  border-color: rgba(229, 192, 123, 0.7);
+  box-shadow: 0 0 25px rgba(229, 192, 123, 0.25);
+}
+
+/* Form inputs */
+.input-neoclassical,
+.textarea-neoclassical,
+.select-neoclassical {
+  width: 100%;
+  padding: 0.65rem 0.95rem;
+  background-color: #0E121A;
+  color: #F8FAFC;
+  border: 1px solid rgba(229, 192, 123, 0.3);
+  border-radius: 2px;
+  font-family: var(--font-inter);
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.input-neoclassical:focus,
+.textarea-neoclassical:focus,
+.select-neoclassical:focus {
+  outline: none;
+  border-color: #E5C07B;
+  box-shadow: 0 0 15px rgba(229, 192, 123, 0.25);
+  background-color: #141924;
+}
+
+/* Classical Button Styles */
+.btn-classical-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: linear-gradient(135deg, #E5C07B 0%, #D4AF37 50%, #B8860B 100%);
+  color: #0B0D12;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+  transition: all 0.3s ease;
+}
+
+.btn-classical-primary:hover {
+  box-shadow: 0 6px 30px rgba(229, 192, 123, 0.45);
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.btn-classical-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: rgba(229, 192, 123, 0.05);
+  color: #E5C07B;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid rgba(229, 192, 123, 0.45);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.btn-classical-secondary:hover {
+  background: rgba(229, 192, 123, 0.15);
+  border-color: #E5C07B;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(229, 192, 123, 0.2);
+}
