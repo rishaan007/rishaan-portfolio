@@ -46,7 +46,7 @@ function ProjectCard({
   project: ProjectWithTech;
   index: number;
   numeral: string;
-  renderVisualizer: (slug: string) => React.ReactNode;
+  renderVisualizer: (slug: string, title?: string, index?: number) => React.ReactNode;
 }) {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const x = useMotionValue(0);
@@ -105,7 +105,7 @@ function ProjectCard({
         <div className={`lg:col-span-7 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
           <div className="relative group/vis">
             <div className="absolute -inset-2 rounded-xs border border-[var(--gold)]/25 pointer-events-none group-hover/vis:border-[var(--gold)]/50 transition-colors" />
-            {renderVisualizer(project.slug)}
+            {renderVisualizer(project.slug, project.title, index)}
           </div>
         </div>
 
@@ -200,19 +200,31 @@ function ProjectCard({
 }
 
 export function Projects({ projects }: ProjectsProps) {
-  const renderVisualizer = (slug: string) => {
-    switch (slug) {
-      case 'atlas':
-        return <AtlasVisualizer />;
-      case 'trinetra':
-        return <TrinetraVisualizer />;
-      case 'swasthya':
-        return <SwasthyaVisualizer />;
-      case 'pricehub':
-        return <PricehubVisualizer />;
-      default:
-        return <AtlasVisualizer />;
+  const renderVisualizer = (slug: string, title?: string, index?: number) => {
+    const s = (slug || '').toLowerCase();
+    const t = (title || '').toLowerCase();
+
+    if (s.includes('trinetra') || t.includes('trinetra') || s.includes('intrusion') || t.includes('intrusion')) {
+      return <TrinetraVisualizer />;
     }
+    if (s.includes('swasthya') || t.includes('swasthya') || s.includes('medical') || t.includes('insurance')) {
+      return <SwasthyaVisualizer />;
+    }
+    if (s.includes('pricehub') || t.includes('pricehub') || s.includes('price') || t.includes('price')) {
+      return <PricehubVisualizer />;
+    }
+    if (s.includes('atlas') || t.includes('atlas') || s.includes('exoplanet') || t.includes('exoplanet') || s.includes('nasa') || t.includes('nasa')) {
+      return <AtlasVisualizer />;
+    }
+
+    // Fallback: guaranteed distinct visualizer by index
+    const fallbackList = [
+      <AtlasVisualizer key="atlas" />,
+      <TrinetraVisualizer key="trinetra" />,
+      <SwasthyaVisualizer key="swasthya" />,
+      <PricehubVisualizer key="pricehub" />,
+    ];
+    return fallbackList[(index ?? 0) % fallbackList.length];
   };
 
   const romanNumerals = ['EXHIBIT I', 'EXHIBIT II', 'EXHIBIT III', 'EXHIBIT IV', 'EXHIBIT V'];

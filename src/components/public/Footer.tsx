@@ -3,12 +3,18 @@
 import { motion } from 'framer-motion';
 import {
   ArrowUp,
-  Mail,
   MapPin,
 } from 'lucide-react';
 import { OrnamentalDivider } from '@/components/public/decorative/OrnamentalDivider';
 import { AnimatedMacbookLogo } from '@/components/public/tech/AnimatedMacbookLogo';
 import { cn } from '@/lib/utils';
+import {
+  GithubIcon,
+  LinkedinIcon,
+  TwitterXIcon,
+  InstagramIcon,
+  MailIcon,
+} from '@/components/public/icons/SocialIcons';
 
 interface NavLink {
   label: string;
@@ -23,45 +29,6 @@ const FOOTER_NAV_LINKS: NavLink[] = [
   { label: 'Journey', href: '#journey' },
   { label: 'Contact', href: '#contact' },
 ];
-
-function GithubIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="24"
-      height="24"
-      stroke="currentColor"
-      strokeWidth="2"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-      <path d="M9 18c-4.51 2-5-2-7-2" />
-    </svg>
-  );
-}
-
-function LinkedinIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="24"
-      height="24"
-      stroke="currentColor"
-      strokeWidth="2"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect x="2" y="9" width="4" height="12" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -149,33 +116,58 @@ export function Footer() {
               <span className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--gold-dark)] font-bold block">
                 Direct Guilds
               </span>
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
                 <a
                   href="https://github.com/rishaan007"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="GitHub Profile"
-                  className="p-2 rounded-xs border border-[var(--gold)]/35 bg-[var(--parchment)]/70 text-[var(--walnut)] hover:text-[var(--burgundy)] hover:border-[var(--gold)] hover:bg-[var(--parchment)] transition-all shadow-2xs"
+                  aria-label="GitHub Profile (github.com/rishaan007)"
+                  title="GitHub: rishaan007"
+                  className="p-2 rounded-xs border border-[var(--gold)]/35 bg-[var(--parchment)]/70 text-[var(--walnut)] hover:text-white hover:border-[var(--gold)] hover:bg-[#161C28] transition-all shadow-2xs"
                 >
-                  <GithubIcon className="w-4 h-4" />
+                  <GithubIcon size={16} />
                 </a>
 
                 <a
-                  href="https://github.com/rishaan007"
+                  href="https://www.linkedin.com/in/rishaankumar"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="GitHub Profile"
-                  className="p-2 rounded-xs border border-[var(--gold)]/35 bg-[var(--parchment)]/70 text-[var(--walnut)] hover:text-[var(--burgundy)] hover:border-[var(--gold)] hover:bg-[var(--parchment)] transition-all shadow-2xs"
+                  aria-label="LinkedIn Profile (linkedin.com/in/rishaankumar)"
+                  title="LinkedIn: rishaankumar"
+                  className="p-2 rounded-xs border border-[var(--gold)]/35 bg-[var(--parchment)]/70 text-[var(--walnut)] hover:text-cyan-300 hover:border-[var(--gold)] hover:bg-[#161C28] transition-all shadow-2xs"
                 >
-                  <LinkedinIcon className="w-4 h-4" />
+                  <LinkedinIcon size={16} />
+                </a>
+
+                <a
+                  href="https://x.com/therishaankumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X / Twitter (x.com/therishaankumar)"
+                  title="X (Twitter): @therishaankumar"
+                  className="p-2 rounded-xs border border-[var(--gold)]/35 bg-[var(--parchment)]/70 text-[var(--walnut)] hover:text-cyan-300 hover:border-[var(--gold)] hover:bg-[#161C28] transition-all shadow-2xs"
+                >
+                  <TwitterXIcon size={15} />
+                </a>
+
+                <a
+                  href="https://instagram.com/therishaankumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram Profile (@therishaankumar)"
+                  title="Instagram: @therishaankumar"
+                  className="p-2 rounded-xs border border-[var(--gold)]/35 bg-[var(--parchment)]/70 text-[var(--walnut)] hover:text-pink-400 hover:border-[var(--gold)] hover:bg-[#161C28] transition-all shadow-2xs"
+                >
+                  <InstagramIcon size={16} />
                 </a>
 
                 <a
                   href="mailto:ashim3006@gmail.com"
-                  aria-label="Direct Email"
-                  className="p-2 rounded-xs border border-[var(--gold)]/35 bg-[var(--parchment)]/70 text-[var(--walnut)] hover:text-[var(--burgundy)] hover:border-[var(--gold)] hover:bg-[var(--parchment)] transition-all shadow-2xs"
+                  aria-label="Direct Email (ashim3006@gmail.com)"
+                  title="Email: ashim3006@gmail.com"
+                  className="p-2 rounded-xs border border-[var(--gold)]/35 bg-[var(--parchment)]/70 text-[var(--walnut)] hover:text-emerald-400 hover:border-[var(--gold)] hover:bg-[#161C28] transition-all shadow-2xs"
                 >
-                  <Mail className="w-4 h-4" />
+                  <MailIcon size={16} />
                 </a>
               </div>
             </div>

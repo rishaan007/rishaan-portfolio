@@ -7,6 +7,15 @@ import {
   ResearchInterest,
 } from "./types/database";
 
+export const SOCIAL_LINKS = {
+  github: "https://github.com/rishaan007",
+  linkedin: "https://www.linkedin.com/in/rishaankumar",
+  instagram: "https://instagram.com/therishaankumar",
+  twitter: "https://x.com/therishaankumar",
+  email: "ashim3006@gmail.com",
+  phone: "+91 7586020239",
+};
+
 export const fallbackProfile: Profile = {
   id: "00000000-0000-0000-0000-000000000001",
   full_name: "Rishaan Kumar",
@@ -22,9 +31,9 @@ export const fallbackProfile: Profile = {
   email: "ashim3006@gmail.com",
   phone: "+91 7586020239",
   github_url: "https://github.com/rishaan007",
-  linkedin_url: null,
+  linkedin_url: "https://www.linkedin.com/in/rishaankumar",
   portrait_url: null,
-  resume_url: null,
+  resume_url: "/Rishaan_Kumar_CV.pdf",
   created_at: new Date().toISOString(),
   updated_at: new Date().toISOString(),
 };

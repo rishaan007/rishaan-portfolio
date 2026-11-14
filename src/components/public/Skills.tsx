@@ -98,6 +98,7 @@ const ENHANCED_CATEGORIES: EnhancedCategoryData[] = [
       { name: 'React.js & Server Components', proficiency: '96%', badge: 'Modern React Architecture' },
       { name: 'Next.js 16 (App Router)', proficiency: '96%', badge: 'Production Web Framework' },
       { name: 'FastAPI (Python)', proficiency: '94%', badge: 'Asynchronous Microservices' },
+      { name: 'Django (Python Web Framework)', proficiency: '91%', badge: 'MVC & REST Gateways' },
       { name: 'Node.js & Express.js', proficiency: '90%', badge: 'RESTful Gateways' },
       { name: 'WebSockets & Event Streams', proficiency: '89%', badge: 'Sub-10ms Live Feeds' },
       { name: 'Tailwind CSS v4 & GSAP', proficiency: '98%', badge: 'Maximalist UI & Physics' },

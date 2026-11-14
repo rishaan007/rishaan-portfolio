@@ -11,10 +11,87 @@ import {
   Calendar,
   MapPin,
   Sparkles,
+  Flame,
+  CheckCircle2,
 } from 'lucide-react';
 import { Education, TimelineEntry } from '@/lib/types/database';
 import { CornerOrnament } from '@/components/public/decorative/CornerOrnament';
 import { OrnamentalDivider } from '@/components/public/decorative/OrnamentalDivider';
+
+const HONORS_AND_HACKATHONS = [
+  {
+    id: 'h-1',
+    event: 'NASA International Space Apps Challenge 2025',
+    project: 'ATLAS — AI-Based Exoplanet Detection',
+    subtitle: 'Global NASA Planetary Hackathon &bull; AI/ML & Full-Stack',
+    badge: 'NASA Global Competitor',
+    badgeColor: 'border-cyan-500/40 bg-cyan-950/40 text-cyan-300',
+    iconName: 'sparkles',
+    description:
+      'Engineered an exoplanet transit detection pipeline using Kepler, K2, and TESS datasets with a hybrid CNN–Transformer architecture and SHAP explainability. Developed a full-stack analysis workflow with FastAPI and React.',
+    tags: ['NASA Kepler/TESS', 'CNNs', 'Transformer Encoders', 'SHAP', 'FastAPI', 'React.js'],
+  },
+  {
+    id: 'h-2',
+    event: 'Binary 36-Hour Hackathon 2025',
+    project: 'NeuraClaim — AI Claims Intelligence Platform',
+    subtitle: '36-Hour Intensive Hackathon Sprint &bull; Document Intelligence',
+    badge: '36h Sprint Prototype',
+    badgeColor: 'border-emerald-500/40 bg-emerald-950/40 text-emerald-300',
+    iconName: 'award',
+    description:
+      'Sprint-built a rapid prototype for automated medical document parsing, insurance policy cross-referencing, and claim-letter drafting under strict 36-hour sprint constraints with OCR and generative AI.',
+    tags: ['OpenAI / Gemini', 'OCR', 'PyPDF2', 'FastAPI', 'Claim Intelligence'],
+  },
+  {
+    id: 'h-3',
+    event: 'Smart Bengal Hackathon 2025',
+    project: 'Regional Societal & Edge Perception Systems',
+    subtitle: 'State-Level Hackathon Competitor &bull; Edge AI & Vision',
+    badge: 'State Hackathon Competitor',
+    badgeColor: 'border-amber-500/40 bg-amber-950/40 text-amber-300',
+    iconName: 'trophy',
+    description:
+      'Engineered edge computing, multimodal sensor fusion, and real-time computer vision prototypes addressing regional governance, safety, and surveillance challenges.',
+    tags: ['Edge AI', 'YOLOv8', 'ESP32', 'FreeRTOS', 'Embedded Linux'],
+  },
+  {
+    id: 'h-4',
+    event: 'Social Winter of Code (SWOC) — Season 6',
+    project: 'Open Source Software Architecture & Mentorship',
+    subtitle: 'Season 6 Open Source Programme &bull; Leadership Role',
+    badge: 'Project Administrator',
+    badgeColor: 'border-purple-500/40 bg-purple-950/40 text-purple-300',
+    iconName: 'git',
+    description:
+      'Selected as Project Administrator for open-source development programmes; steered software architecture, reviewed and merged pull requests, and mentored contributors across collaborative codebases.',
+    tags: ['Project Administrator', 'Open Source', 'Architecture', 'Code Review'],
+  },
+  {
+    id: 'h-5',
+    event: 'Hacktoberfest 2025',
+    project: 'Global Open-Source Engineering Sprints',
+    subtitle: 'DigitalOcean / GitHub Open Source Initiative',
+    badge: 'Verified Contributor',
+    badgeColor: 'border-orange-500/40 bg-orange-950/40 text-orange-300',
+    iconName: 'flame',
+    description:
+      'Contributed verified, merged pull requests to developer tools, machine learning pipelines, and community software repositories across the global open-source ecosystem.',
+    tags: ['Open Source', 'Python Stack', 'Developer Tooling', 'CI/CD'],
+  },
+  {
+    id: 'h-6',
+    event: 'Byte Brigade',
+    project: 'Non-Profit Student Technology Community',
+    subtitle: 'Co-Founder & Organizer &bull; 2024 – Present',
+    badge: 'Co-Founder & Community Lead',
+    badgeColor: 'border-[var(--gold)]/40 bg-[var(--gold)]/10 text-[var(--gold)]',
+    iconName: 'users',
+    description:
+      'Co-founded a student tech community; established six technical wings (App Dev, Web Dev, DSA, AI/ML, Blockchain, Designing), organised 12+ events and workshops, and built student discovery platforms.',
+    tags: ['Community Leadership', '6 Technical Wings', '12+ Events', 'Ecosystem'],
+  },
+];
 
 interface JourneyProps {
   education: Education[];
@@ -228,6 +305,86 @@ export function Journey({ education, timeline }: JourneyProps) {
             )}
           </motion.div>
         ))}
+
+        {/* Competitive Honors & Hackathons Showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.7 }}
+          className="mb-16"
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-2.5 rounded-xs bg-[#1A2234] border border-[var(--gold)]/50 text-[var(--gold)] shadow-md">
+              <Trophy className="w-5 h-5 text-amber-400" />
+            </div>
+            <div>
+              <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-cyan-400 font-bold block">
+                COMPETITIVE ARENAS &bull; HACKATHONS &bull; OPEN SOURCE
+              </span>
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[var(--burgundy)]">
+                Honors &amp; Hackathon Milestones
+              </h3>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {HONORS_AND_HACKATHONS.map((honor, idx) => (
+              <motion.div
+                key={honor.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="relative p-6 rounded-sm bg-[#121622] text-[#F5F0E6] border border-[var(--gold)]/35 hover:border-[var(--gold)] shadow-lg texture-paper group transition-all"
+              >
+                <CornerOrnament position="top-right" size="sm" className="opacity-30 group-hover:opacity-60 text-[var(--gold)]" />
+
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <div className="p-2 rounded bg-[#1A2234] border border-[var(--gold)]/30">
+                    {honor.iconName === 'sparkles' && <Sparkles className="w-5 h-5 text-cyan-300" />}
+                    {honor.iconName === 'award' && <Award className="w-5 h-5 text-emerald-400" />}
+                    {honor.iconName === 'trophy' && <Trophy className="w-5 h-5 text-amber-400" />}
+                    {honor.iconName === 'git' && <GitPullRequest className="w-5 h-5 text-purple-300" />}
+                    {honor.iconName === 'flame' && <Flame className="w-5 h-5 text-orange-400" />}
+                    {honor.iconName === 'users' && <Users className="w-5 h-5 text-[var(--gold)]" />}
+                  </div>
+                  <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold border tracking-wide uppercase ${honor.badgeColor}`}>
+                    {honor.badge}
+                  </span>
+                </div>
+
+                <span className="text-[10px] font-mono tracking-wider text-[var(--gold)] uppercase block mb-1 font-bold">
+                  {honor.event}
+                </span>
+
+                <h4 className="font-serif text-lg sm:text-xl font-bold text-gold-gradient mb-1">
+                  {honor.project}
+                </h4>
+
+                <p className="font-serif italic text-xs text-[var(--walnut)] font-semibold mb-3">
+                  {honor.subtitle}
+                </p>
+
+                <p className="text-xs sm:text-sm text-[#C8C2B7] leading-relaxed font-sans mb-4">
+                  {honor.description}
+                </p>
+
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--gold)]/20">
+                  {honor.tags.map((tag, tIdx) => (
+                    <span
+                      key={tIdx}
+                      className="px-2 py-0.5 text-[10px] font-mono rounded-xs bg-[#161C28] text-cyan-300/90 border border-cyan-500/20"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Vertical Chronicle Timeline */}
         <div className="relative pl-6 sm:pl-10 border-l-2 border-[var(--gold)]/40 space-y-12">

@@ -108,8 +108,11 @@ export function InteractiveTerminal() {
         result = (
           <div className="space-y-1 text-xs font-mono">
             <p className="text-[var(--gold)]">Email: <a href="mailto:ashim3006@gmail.com" className="underline text-cyan-300">ashim3006@gmail.com</a></p>
-            <p className="text-[var(--gold)]">Phone: +91 7586020239</p>
+            <p className="text-[var(--gold)]">Phone: <a href="tel:+917586020239" className="text-cyan-300 hover:underline">+91 7586020239</a></p>
+            <p className="text-[var(--gold)]">LinkedIn: <a href="https://www.linkedin.com/in/rishaankumar" target="_blank" rel="noreferrer" className="underline text-cyan-300">linkedin.com/in/rishaankumar</a></p>
             <p className="text-[var(--gold)]">GitHub: <a href="https://github.com/rishaan007" target="_blank" rel="noreferrer" className="underline text-cyan-300">github.com/rishaan007</a></p>
+            <p className="text-[var(--gold)]">X / Twitter: <a href="https://x.com/therishaankumar" target="_blank" rel="noreferrer" className="underline text-cyan-300">@therishaankumar</a></p>
+            <p className="text-[var(--gold)]">Instagram: <a href="https://instagram.com/therishaankumar" target="_blank" rel="noreferrer" className="underline text-cyan-300">@therishaankumar</a></p>
             <p className="text-[var(--charcoal)]">Location: Kolkata, West Bengal, India</p>
           </div>
         );

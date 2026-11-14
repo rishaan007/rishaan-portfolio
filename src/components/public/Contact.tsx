@@ -5,6 +5,13 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, Send, CheckCircle2, Copy, Check, MapPin, MessageSquare, Sparkles } from 'lucide-react';
 import { CornerOrnament } from '@/components/public/decorative/CornerOrnament';
 import { toast } from 'sonner';
+import {
+  GithubIcon,
+  LinkedinIcon,
+  TwitterXIcon,
+  InstagramIcon,
+  MailIcon,
+} from '@/components/public/icons/SocialIcons';
 
 export function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -165,6 +172,51 @@ export function Contact() {
                 <span className="text-sm font-serif font-bold text-[var(--walnut)]">
                   Kolkata, West Bengal, India
                 </span>
+              </div>
+            </div>
+
+            {/* Social Networks Guild Bar */}
+            <div className="p-4 rounded-sm bg-[var(--parchment)]/70 border border-[var(--gold)]/30 space-y-2">
+              <span className="text-[10px] font-mono text-[var(--muted)] uppercase tracking-wider block">
+                Social Networks &bull; Direct Profiles
+              </span>
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                <a
+                  href="https://github.com/rishaan007"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 rounded-xs border border-[var(--gold)]/40 bg-[var(--ivory)] text-xs font-mono text-[var(--walnut)] hover:text-white hover:bg-[#161C28] hover:border-[var(--gold)] transition-all flex items-center gap-1.5"
+                >
+                  <GithubIcon size={14} />
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/rishaankumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 rounded-xs border border-[var(--gold)]/40 bg-[var(--ivory)] text-xs font-mono text-[var(--walnut)] hover:text-cyan-300 hover:bg-[#161C28] hover:border-[var(--gold)] transition-all flex items-center gap-1.5"
+                >
+                  <LinkedinIcon size={14} />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="https://x.com/therishaankumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 rounded-xs border border-[var(--gold)]/40 bg-[var(--ivory)] text-xs font-mono text-[var(--walnut)] hover:text-cyan-300 hover:bg-[#161C28] hover:border-[var(--gold)] transition-all flex items-center gap-1.5"
+                >
+                  <TwitterXIcon size={13} />
+                  <span>X / Twitter</span>
+                </a>
+                <a
+                  href="https://instagram.com/therishaankumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 rounded-xs border border-[var(--gold)]/40 bg-[var(--ivory)] text-xs font-mono text-[var(--walnut)] hover:text-pink-400 hover:bg-[#161C28] hover:border-[var(--gold)] transition-all flex items-center gap-1.5"
+                >
+                  <InstagramIcon size={14} />
+                  <span>Instagram</span>
+                </a>
               </div>
             </div>
           </motion.div>

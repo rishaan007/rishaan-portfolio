@@ -6,6 +6,13 @@ import { Menu, X, ArrowUpRight, Activity, Terminal, Shield } from 'lucide-react'
 import { TechLogo } from '@/components/public/tech/TechLogo';
 import { ScrollProgressBar } from '@/components/public/interactive/ScrollProgressBar';
 import { cn } from '@/lib/utils';
+import {
+  GithubIcon,
+  LinkedinIcon,
+  TwitterXIcon,
+  InstagramIcon,
+  MailIcon,
+} from '@/components/public/icons/SocialIcons';
 
 interface NavItem {
   name: string;
@@ -215,7 +222,7 @@ export function Navbar() {
                   </a>
                 ))}
 
-                <div className="pt-3 border-t border-[var(--gold)]/20">
+                <div className="pt-3 border-t border-[var(--gold)]/20 space-y-3">
                   <a
                     href="#contact"
                     onClick={(e) => handleNavClick(e, 'contact')}
@@ -224,6 +231,53 @@ export function Navbar() {
                     <span>Let&apos;s Connect</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
+
+                  {/* Mobile Direct Social Links */}
+                  <div className="flex items-center justify-center gap-3 pt-1">
+                    <a
+                      href="https://github.com/rishaan007"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-xs border border-[var(--gold)]/30 bg-[#161C28] text-[var(--gold)] hover:text-white"
+                      title="GitHub"
+                    >
+                      <GithubIcon size={16} />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/rishaankumar"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-xs border border-[var(--gold)]/30 bg-[#161C28] text-[var(--gold)] hover:text-cyan-300"
+                      title="LinkedIn"
+                    >
+                      <LinkedinIcon size={16} />
+                    </a>
+                    <a
+                      href="https://x.com/therishaankumar"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-xs border border-[var(--gold)]/30 bg-[#161C28] text-[var(--gold)] hover:text-cyan-300"
+                      title="X / Twitter"
+                    >
+                      <TwitterXIcon size={15} />
+                    </a>
+                    <a
+                      href="https://instagram.com/therishaankumar"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-xs border border-[var(--gold)]/30 bg-[#161C28] text-[var(--gold)] hover:text-pink-400"
+                      title="Instagram"
+                    >
+                      <InstagramIcon size={16} />
+                    </a>
+                    <a
+                      href="mailto:ashim3006@gmail.com"
+                      className="p-2 rounded-xs border border-[var(--gold)]/30 bg-[#161C28] text-[var(--gold)] hover:text-emerald-300"
+                      title="Email"
+                    >
+                      <MailIcon size={16} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>

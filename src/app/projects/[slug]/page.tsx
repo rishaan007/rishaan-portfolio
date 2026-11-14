@@ -6,6 +6,10 @@ import { OrnamentalDivider } from "@/components/public/decorative/OrnamentalDivi
 import { ArchFrame } from "@/components/public/decorative/ArchFrame";
 import { GsapInteractiveEngine } from "@/components/public/interactive/GsapInteractiveEngine";
 import { fallbackProjects } from "@/lib/fallback-data";
+import { AtlasVisualizer } from "@/components/public/visualizers/AtlasVisualizer";
+import { TrinetraVisualizer } from "@/components/public/visualizers/TrinetraVisualizer";
+import { SwasthyaVisualizer } from "@/components/public/visualizers/SwasthyaVisualizer";
+import { PricehubVisualizer } from "@/components/public/visualizers/PricehubVisualizer";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -103,6 +107,24 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     { title: "Key Learnings", content: project.key_learnings },
   ].filter((s) => s.content);
 
+  const visualizerComponent = (() => {
+    const s = (project.slug || "").toLowerCase();
+    const t = (project.title || "").toLowerCase();
+    if (s.includes("trinetra") || t.includes("trinetra") || s.includes("intrusion") || t.includes("intrusion")) {
+      return <TrinetraVisualizer />;
+    }
+    if (s.includes("swasthya") || t.includes("swasthya") || s.includes("medical") || t.includes("insurance")) {
+      return <SwasthyaVisualizer />;
+    }
+    if (s.includes("pricehub") || t.includes("pricehub") || s.includes("price") || t.includes("price")) {
+      return <PricehubVisualizer />;
+    }
+    if (s.includes("atlas") || t.includes("atlas") || s.includes("exoplanet") || t.includes("exoplanet")) {
+      return <AtlasVisualizer />;
+    }
+    return null;
+  })();
+
   return (
     <main className="min-h-screen bg-[var(--ivory)] text-[var(--espresso)]">
       <GsapInteractiveEngine />
@@ -187,6 +209,24 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       </div>
 
       <OrnamentalDivider variant="ornate" />
+
+      {/* Interactive Simulation & Empirical HUD */}
+      {visualizerComponent && (
+        <div className="max-w-4xl mx-auto px-6 pt-10 pb-4">
+          <div className="flex items-center justify-between border-b border-[var(--gold)]/20 pb-3 mb-6">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--gold-dark)] font-bold">
+              EMPIRICAL DECK // INTERACTIVE SYSTEM SIMULATION
+            </span>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30">
+              ACTIVE TELEMETRY
+            </span>
+          </div>
+          <div className="relative group/vis">
+            <div className="absolute -inset-2 rounded-xs border border-[var(--gold)]/25 pointer-events-none group-hover/vis:border-[var(--gold)]/50 transition-colors" />
+            {visualizerComponent}
+          </div>
+        </div>
+      )}
 
       {/* Featured Image */}
       {project.featured_image && (

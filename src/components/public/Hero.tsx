@@ -27,28 +27,16 @@ import { AnimatedMacbookLogo } from '@/components/public/tech/AnimatedMacbookLog
 import { InteractiveTerminal } from '@/components/public/tech/InteractiveTerminal';
 import { LiveCodeDeck } from '@/components/public/tech/LiveCodeDeck';
 import { TelemetryHUD } from '@/components/public/tech/TelemetryHUD';
+import {
+  GithubIcon,
+  LinkedinIcon,
+  TwitterXIcon,
+  InstagramIcon,
+  MailIcon,
+} from '@/components/public/icons/SocialIcons';
 
 interface HeroProps {
   profile: Profile | null;
-}
-
-function GithubIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="20"
-      height="20"
-      stroke="currentColor"
-      strokeWidth="2"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-      <path d="M9 18c-4.51 2-5-2-7-2" />
-    </svg>
-  );
 }
 
 const containerVariants: Variants = {
@@ -87,7 +75,11 @@ export function Hero({ profile }: HeroProps) {
   const professionalTitle =
     profile?.professional_title || 'AI/ML & Data Science Enthusiast';
   const githubUrl = profile?.github_url || 'https://github.com/rishaan007';
-  const resumeUrl = profile?.resume_url;
+  const linkedinUrl = profile?.linkedin_url || 'https://www.linkedin.com/in/rishaankumar';
+  const twitterUrl = 'https://x.com/therishaankumar';
+  const instagramUrl = 'https://instagram.com/therishaankumar';
+  const emailUrl = 'mailto:ashim3006@gmail.com';
+  const resumeUrl = profile?.resume_url || '/Rishaan_Kumar_CV.pdf';
   const portraitUrl = profile?.portrait_url;
 
   const scrollTo = (id: string) => {
@@ -291,23 +283,72 @@ export function Hero({ profile }: HeroProps) {
               {resumeUrl && (
                 <a
                   href={resumeUrl}
-                  download
-                  className="gsap-magnetic inline-flex items-center gap-2 px-4 py-2.5 rounded-xs border border-[var(--gold)]/40 bg-[#161C28] text-[var(--walnut)] font-serif text-xs tracking-wider uppercase hover:border-[var(--gold)] transition-all"
+                  download="Rishaan_Kumar_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="gsap-magnetic inline-flex items-center gap-2 px-4 py-2.5 rounded-xs border border-[var(--gold)]/40 bg-[#161C28] text-[var(--walnut)] font-serif text-xs tracking-wider uppercase hover:border-[var(--gold)] hover:text-white transition-all"
+                  title="Download Rishaan Kumar's CV (PDF)"
                 >
                   <FileDown className="w-3.5 h-3.5 text-[var(--gold)]" />
                   <span>CV</span>
                 </a>
               )}
 
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Profile"
-                className="gsap-magnetic p-2.5 rounded-xs border border-[var(--gold)]/40 bg-[#121622] text-[var(--gold)] hover:text-white hover:border-[var(--gold)] transition-all"
-              >
-                <GithubIcon />
-              </a>
+              {/* Social Channels Pill Cluster */}
+              <div className="flex items-center gap-1.5 p-1 rounded-xs border border-[var(--gold)]/30 bg-[#101420]/80">
+                <a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub (github.com/rishaan007)"
+                  title="GitHub: rishaan007"
+                  className="gsap-magnetic p-2 rounded-xs text-[var(--gold)] hover:text-white hover:bg-[var(--gold)]/20 transition-all"
+                >
+                  <GithubIcon size={16} />
+                </a>
+
+                <a
+                  href={linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn (linkedin.com/in/rishaankumar)"
+                  title="LinkedIn: rishaankumar"
+                  className="gsap-magnetic p-2 rounded-xs text-[var(--gold)] hover:text-cyan-300 hover:bg-[var(--gold)]/20 transition-all"
+                >
+                  <LinkedinIcon size={16} />
+                </a>
+
+                <a
+                  href={twitterUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X / Twitter (x.com/therishaankumar)"
+                  title="X (Twitter): @therishaankumar"
+                  className="gsap-magnetic p-2 rounded-xs text-[var(--gold)] hover:text-cyan-300 hover:bg-[var(--gold)]/20 transition-all"
+                >
+                  <TwitterXIcon size={15} />
+                </a>
+
+                <a
+                  href={instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram (@therishaankumar)"
+                  title="Instagram: @therishaankumar"
+                  className="gsap-magnetic p-2 rounded-xs text-[var(--gold)] hover:text-pink-400 hover:bg-[var(--gold)]/20 transition-all"
+                >
+                  <InstagramIcon size={16} />
+                </a>
+
+                <a
+                  href={emailUrl}
+                  aria-label="Email (ashim3006@gmail.com)"
+                  title="Direct Email: ashim3006@gmail.com"
+                  className="gsap-magnetic p-2 rounded-xs text-[var(--gold)] hover:text-emerald-300 hover:bg-[var(--gold)]/20 transition-all"
+                >
+                  <MailIcon size={16} />
+                </a>
+              </div>
             </motion.div>
           </motion.div>
 
