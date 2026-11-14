@@ -114,7 +114,7 @@ export function Navbar() {
               {/* Identity Name & Telemetry Label */}
               <div className="flex flex-col">
                 <div className="flex items-center gap-2">
-                  <span className="font-serif text-lg sm:text-xl font-bold tracking-[0.18em] uppercase text-gold-gradient group-hover:brightness-125 transition-all">
+                  <span className="font-cinzel text-base sm:text-lg font-black tracking-[0.22em] uppercase text-gold-gradient group-hover:brightness-125 transition-all">
                     Rishaan Kumar
                   </span>
                   <span className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.2 rounded-xs bg-[#161C28] text-[9px] font-mono text-emerald-400 border border-emerald-500/30">

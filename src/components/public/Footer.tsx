@@ -71,7 +71,7 @@ export function Footer() {
                 <AnimatedMacbookLogo size="sm" showAura={true} />
               </div>
               <div className="flex flex-col">
-                <span className="font-serif text-xl sm:text-2xl font-bold tracking-[0.2em] uppercase text-[var(--burgundy)]">
+                <span className="font-cinzel text-xl sm:text-2xl font-bold tracking-[0.2em] uppercase text-gold-gradient">
                   Rishaan Kumar
                 </span>
                 <span className="text-[10px] tracking-[0.26em] uppercase text-[var(--muted)] font-mono">

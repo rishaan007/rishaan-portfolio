@@ -27,6 +27,7 @@ import { AnimatedMacbookLogo } from '@/components/public/tech/AnimatedMacbookLog
 import { InteractiveTerminal } from '@/components/public/tech/InteractiveTerminal';
 import { LiveCodeDeck } from '@/components/public/tech/LiveCodeDeck';
 import { TelemetryHUD } from '@/components/public/tech/TelemetryHUD';
+import { FloatingGadgetShowcase } from '@/components/public/tech/FloatingGadgetShowcase';
 import {
   GithubIcon,
   LinkedinIcon,
@@ -79,7 +80,7 @@ export function Hero({ profile }: HeroProps) {
   const twitterUrl = 'https://x.com/therishaankumar';
   const instagramUrl = 'https://instagram.com/therishaankumar';
   const emailUrl = 'mailto:ashim3006@gmail.com';
-  const resumeUrl = profile?.resume_url || '/Rishaan_Kumar_CV.pdf';
+  const resumeUrl = '/Rishaan_Kumar_CV.pdf';
   const portraitUrl = profile?.portrait_url;
 
   const scrollTo = (id: string) => {
@@ -155,10 +156,10 @@ export function Hero({ profile }: HeroProps) {
               <span className="h-px w-6 bg-[var(--gold)]" />
             </motion.div>
 
-            {/* Grand Serif Name with Gold Sheen */}
+            {/* Grand Imperial Monument Name with Gold Sheen */}
             <motion.h1
               variants={itemVariants}
-              className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-gold-gradient leading-[1.05] filter drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]"
+              className="font-cinzel text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[0.06em] uppercase text-gold-gradient leading-[1.08] filter drop-shadow-[0_4px_25px_rgba(212,175,55,0.3)]"
             >
               {fullName}
             </motion.h1>
@@ -171,49 +172,40 @@ export function Hero({ profile }: HeroProps) {
               {subheadline}
             </motion.div>
 
-            {/* Portrait & Credentials Horizontal Lockup */}
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-5 p-4 rounded bg-[#121622]/90 border border-[var(--gold)]/35 shadow-lg">
-              {/* Arch Portrait */}
-              <div className="relative shrink-0">
-                <ArchFrame variant="portrait" className="w-28 h-36 border border-[var(--gold)]/50 bg-[#0E121A]">
-                  {portraitUrl ? (
-                    <Image
-                      src={portraitUrl}
-                      alt={fullName}
-                      fill
-                      className="object-cover object-center"
-                      priority
-                    />
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center p-3 bg-gradient-to-b from-[#1A2234] via-[#101422] to-[#0A0D14] text-center group">
-                      <AnimatedMacbookLogo size="md" showAura={true} />
-                      <span className="text-[9px] font-mono tracking-widest text-[var(--gold)] mt-2">
-                        AI &bull; RESEARCH ARCHITECTURE
-                      </span>
-                      <span className="text-[8px] font-mono text-cyan-400">
-                        KOLKATA &bull; MAKAUT &apos;28
-                      </span>
-                    </div>
-                  )}
-                </ArchFrame>
+            {/* Interactive Floating Gadget (Laptop / Tablet / Mobile) */}
+            <motion.div variants={itemVariants} className="relative p-5 rounded-sm bg-[#121622]/95 border-2 border-[var(--gold)]/40 shadow-2xl texture-paper overflow-hidden">
+              <CornerOrnament position="top-right" size="sm" className="opacity-40 text-[var(--gold)]" />
+              <CornerOrnament position="bottom-left" size="sm" className="opacity-40 text-[var(--gold)]" />
+
+              <div className="flex flex-col items-center text-center mb-2">
+                <span className="text-[10px] font-mono tracking-[0.22em] uppercase text-cyan-400 font-bold flex items-center gap-1.5">
+                  <Sparkles className="w-3 h-3 text-[var(--gold)]" />
+                  INTERACTIVE HARDWARE NODE // TAP GADGET
+                </span>
               </div>
 
+              {/* The Hovering Floating Gadget (Laptop / Tablet / Mobile) */}
+              <FloatingGadgetShowcase className="my-1" />
+
               {/* Bio & Academic Highlights */}
-              <div className="space-y-2 text-left">
-                <div className="flex flex-wrap items-center gap-1.5">
+              <div className="mt-4 pt-3 border-t border-[var(--gold)]/20 space-y-2 text-center sm:text-left">
+                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5">
                   <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-950 text-emerald-300 border border-emerald-500/30">
-                    B.Tech IT &bull; CGPA 7.7
+                    B.Tech IT &bull; CGPA 7.7 / 10
                   </span>
                   <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-950 text-cyan-300 border border-cyan-500/30">
-                    AI/ML Enthusiast
+                    AI/ML &amp; Systems
+                  </span>
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#1A2234] text-[var(--gold)] border border-[var(--gold)]/30">
+                    Netaji Subhash Engineering College (NSEC)
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-[var(--espresso)]/90 leading-relaxed font-sans">
                   {description}
                 </p>
-                <div className="text-[11px] font-mono text-[var(--muted)] flex items-center gap-2">
+                <div className="text-[11px] font-mono text-[var(--muted)] flex items-center justify-center sm:justify-start gap-2">
                   <MapPin className="w-3.5 h-3.5 text-[var(--gold)]" />
-                  <span>Netaji Subhash Engineering College, MAKAUT &bull; Graduating 2028</span>
+                  <span>Kolkata, West Bengal, India &bull; Class of 2028 (MAKAUT)</span>
                 </div>
               </div>
             </motion.div>
@@ -280,19 +272,17 @@ export function Hero({ profile }: HeroProps) {
                 <span>Explore Journey</span>
               </button>
 
-              {resumeUrl && (
-                <a
-                  href={resumeUrl}
-                  download="Rishaan_Kumar_CV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="gsap-magnetic inline-flex items-center gap-2 px-4 py-2.5 rounded-xs border border-[var(--gold)]/40 bg-[#161C28] text-[var(--walnut)] font-serif text-xs tracking-wider uppercase hover:border-[var(--gold)] hover:text-white transition-all"
-                  title="Download Rishaan Kumar's CV (PDF)"
-                >
-                  <FileDown className="w-3.5 h-3.5 text-[var(--gold)]" />
-                  <span>CV</span>
-                </a>
-              )}
+              <a
+                href={resumeUrl}
+                download="Rishaan_Kumar_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gsap-magnetic inline-flex items-center gap-2 px-4 py-2.5 rounded-xs border border-[var(--gold)]/40 bg-[#161C28] text-[var(--walnut)] font-serif text-xs tracking-wider uppercase hover:border-[var(--gold)] hover:text-white transition-all shadow-md group"
+                title="Download Rishaan Kumar's CV (PDF)"
+              >
+                <FileDown className="w-3.5 h-3.5 text-[var(--gold)] group-hover:translate-y-0.5 transition-transform" />
+                <span>CV (PDF)</span>
+              </a>
 
               {/* Social Channels Pill Cluster */}
               <div className="flex items-center gap-1.5 p-1 rounded-xs border border-[var(--gold)]/30 bg-[#101420]/80">
