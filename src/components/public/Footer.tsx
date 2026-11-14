@@ -28,6 +28,7 @@ const FOOTER_NAV_LINKS: NavLink[] = [
   { label: 'Research & Interests', href: '#research' },
   { label: 'Journey', href: '#journey' },
   { label: 'Contact', href: '#contact' },
+  { label: 'Curriculum Vitae (PDF)', href: '/Rishaan_Kumar_CV.pdf' },
 ];
 
 export function Footer() {
@@ -44,11 +45,13 @@ export function Footer() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    e.preventDefault();
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.replace('#', '');
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -101,6 +104,8 @@ export function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
+                    target={link.href.startsWith('#') ? undefined : '_blank'}
+                    rel={link.href.startsWith('#') ? undefined : 'noopener noreferrer'}
                     className="hover:text-[var(--burgundy)] transition-colors hover:translate-x-0.5 inline-block"
                   >
                     {link.label}

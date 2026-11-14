@@ -21,6 +21,7 @@ import {
   Brain,
   Microchip,
   Network,
+  FileDown,
 } from 'lucide-react';
 import { Profile } from '@/lib/types/database';
 import { CornerOrnament } from '@/components/public/decorative/CornerOrnament';
@@ -394,7 +395,7 @@ export function About({ profile, interests }: AboutProps) {
                     <div className="flex items-center gap-3">
                       <AnimatedMacbookLogo size="xs" showAura={false} />
                       <div className="flex flex-col">
-                        <span className="font-serif text-sm font-bold text-gold-gradient">Rishaan Kumar</span>
+                        <span className="font-cinzel text-sm font-bold tracking-wider uppercase text-gold-gradient">Rishaan Kumar</span>
                         <span className="text-[9px] font-mono text-[var(--muted)]">AI/ML Architect &bull; Researcher</span>
                       </div>
                     </div>
@@ -544,6 +545,18 @@ export function About({ profile, interests }: AboutProps) {
                       <span>Data Structures &amp; Distributed Systems</span>
                     </div>
                   </div>
+
+                  <a
+                    href="/Rishaan_Kumar_CV.pdf"
+                    download="Rishaan_Kumar_CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xs border border-[var(--gold)]/50 bg-[#161C28] text-[var(--gold)] font-mono text-xs uppercase tracking-wider hover:bg-[var(--gold)] hover:text-[#0B0D12] transition-all shadow-md group"
+                    title="Download Official Curriculum Vitae"
+                  >
+                    <FileDown className="w-4 h-4 text-[var(--gold)] group-hover:text-[#0B0D12] group-hover:translate-y-0.5 transition-all" />
+                    <span>Download Official Curriculum Vitae (PDF)</span>
+                  </a>
                 </div>
               </div>
 
